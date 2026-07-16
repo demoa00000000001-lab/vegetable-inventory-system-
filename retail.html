@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>खुद्रा पसल · Retail Shop — मण्डी बही</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="retail">
+    <div class="app-shell">
+    <div id="nav-overlay" class="nav-overlay" onclick="closeSidebar()"></div>
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-brand">
+            <span class="glyph">📗</span><h1>मण्डी बही</h1>
+            <p>MANDI BAHI · Market Ledger</p>
+        </div>
+        <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link"><span class="ico">🏠</span>ड्यासबोर्ड <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Dashboard</span></a>
+                <a href="vegetables.html" class="nav-link"><span class="ico">🥬</span>तरकारी <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Vegetables</span></a>
+                <a href="farmers.html" class="nav-link"><span class="ico">👨‍🌾</span>किसान <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Farmers</span></a>
+                <a href="buyers.html" class="nav-link"><span class="ico">🏢</span>खरिदकर्ता <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Buyers</span></a>
+                <a href="retail.html" class="nav-link active"><span class="ico">🏪</span>खुद्रा पसल <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Retail Shop</span></a>
+                <a href="wholesale.html" class="nav-link"><span class="ico">🚚</span>थोक <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Wholesale</span></a>
+                <a href="waste.html" class="nav-link"><span class="ico">📉</span>बर्बादी <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Waste</span></a>
+                <a href="expenses.html" class="nav-link"><span class="ico">💰</span>खर्च <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Expenses</span></a>
+                <a href="reports.html" class="nav-link"><span class="ico">📊</span>रिपोर्ट <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Reports</span></a>
+        </nav>
+        <div class="sidebar-foot">
+            <button class="nav-link" onclick="logout()"><span class="ico">🚪</span>लगआउट <span class="mono" style="opacity:.6;font-size:.72rem;margin-left:auto;">Logout</span></button>
+        </div>
+    </aside>
+        <div class="main-col">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+                    <h2 class="page-title">खुद्रा पसल<span class="sub">Shop-floor stock and walk-in sales</span></h2>
+                </div>
+                <span class="topbar-date mono" id="topbar-date"></span>
+            </header>
+            <main class="content">
+                <div class="sub-nav">
+                    <button onclick="showRetailSub('stock', event)" class="sub-btn active">माल · Stock</button>
+                    <button onclick="showRetailSub('sales', event)" class="sub-btn">बिक्री · Sales</button>
+                </div>
+
+                <div id="retail-stock-view" class="sub-section active">
+                    <button class="btn-primary" onclick="showAddStockForm()">🏪 पसलमा माल थप्नुहोस् · Add Stock</button>
+                    <div class="list-container" id="retail-stock-list"></div>
+                </div>
+
+                <div id="retail-sales-view" class="sub-section">
+                    <button class="btn-primary" onclick="showAddSaleForm()">💰 नयाँ खुद्रा बिक्री · New Sale</button>
+                    <div class="list-container" id="retail-sales-list"></div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" class="close-btn">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('topbar-date').textContent = new Date().toLocaleDateString('en-CA');
+    </script>
+</body>
+</html>

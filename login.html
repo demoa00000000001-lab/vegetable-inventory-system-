@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>लगइन · Login — मण्डी बही</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="login">
+    <div class="login-wrap">
+        <div class="login-card">
+            <div class="login-brand">
+                <span class="glyph">📗</span>
+                <h1>मण्डी बही</h1>
+                <p>Mandi Bahi · your shop's daily market ledger</p>
+            </div>
+            <div class="field-group">
+                <label>पासवर्ड / Access Key</label>
+                <input type="password" id="access-key" placeholder="Enter access key" onkeydown="if(event.key==='Enter') login()">
+            </div>
+            <button class="btn-stamp" onclick="login()">खोल्नुहोस् · Open Ledger</button>
+            <p class="login-hint">Hint: admin123</p>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
